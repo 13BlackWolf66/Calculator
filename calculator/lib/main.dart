@@ -39,7 +39,9 @@ class _CalculatorAppState extends State<CalculatorApp> {
           (operation == '-') ? res = firstNumber - secondNumber : 0;
           (operation == '*') ? res = firstNumber * secondNumber : 0;
           (operation == '/') ? res = firstNumber / secondNumber : 0;
-          (operation == '^') ? res = (pow(firstNumber,secondNumber)).toDouble()  : 0;
+          (operation == '^')
+              ? res = (pow(firstNumber, secondNumber)).toDouble()
+              : 0;
           textToDisplay = res.toString();
         }
         break;
@@ -69,8 +71,9 @@ class _CalculatorAppState extends State<CalculatorApp> {
           firstNumber = double.parse(textToDisplay);
           operation = '/';
           textToDisplay = '';
-        }break;
-        case '^':
+        }
+        break;
+      case '^':
         {
           firstNumber = double.parse(textToDisplay);
           operation = '^';
@@ -104,7 +107,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
         break;
       case '<=':
         {
-          if (operation == '') {            
+          if (operation == '') {
             textToDisplay = '';
             firstNumber = 0;
           } else {
@@ -113,9 +116,13 @@ class _CalculatorAppState extends State<CalculatorApp> {
           }
         }
         break;
-        case '.':{
-          (textToDisplay!=''&&!(textToDisplay.contains('.')))? textToDisplay+='.':0; 
-        }break;
+      case '.':
+        {
+          (textToDisplay != '' && !(textToDisplay.contains('.')))
+              ? textToDisplay += '.'
+              : 0;
+        }
+        break;
     }
     setState(() {});
   }
