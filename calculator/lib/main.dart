@@ -20,6 +20,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
   String operation = '';
   double firstNumber = 0;
   double secondNumber = 0;
+  String textHistory = 'hello dart ';
 
   void onClick(String response) {
     switch (response) {
@@ -30,6 +31,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
           operation = '';
           firstNumber = 0;
           secondNumber = 0;
+          textHistory = '';
         }
         break;
       case '=':
@@ -42,6 +44,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
           (operation == '^')
               ? res = (pow(firstNumber, secondNumber)).toDouble()
               : 0;
+          textHistory = '$firstNumber $operation $secondNumber';
           textToDisplay = res.toString();
         }
         break;
@@ -49,6 +52,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
         {
           firstNumber = double.parse(textToDisplay);
           operation = '+';
+          textHistory = '$textToDisplay $operation';
           textToDisplay = '';
         }
         break;
@@ -56,6 +60,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
         {
           firstNumber = double.parse(textToDisplay);
           operation = '-';
+          textHistory = '$textToDisplay $operation';
           textToDisplay = '';
         }
         break;
@@ -63,6 +68,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
         {
           firstNumber = double.parse(textToDisplay);
           operation = '*';
+          textHistory = '$textToDisplay $operation';
           textToDisplay = '';
         }
         break;
@@ -70,6 +76,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
         {
           firstNumber = double.parse(textToDisplay);
           operation = '/';
+          textHistory = '$textToDisplay $operation';
           textToDisplay = '';
         }
         break;
@@ -77,6 +84,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
         {
           firstNumber = double.parse(textToDisplay);
           operation = '^';
+          textHistory = '$textToDisplay $operation';
           textToDisplay = '';
         }
         break;
@@ -124,7 +132,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
         }
         break;
     }
-    setState(() {});
+    setState(() {textHistory; textToDisplay;});
   }
 
   @override
@@ -150,6 +158,19 @@ class _CalculatorAppState extends State<CalculatorApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              Container(
+                alignment: Alignment(1.0, 1.0),
+                child: Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: Text(
+                    textHistory,
+                    style: GoogleFonts.rubik(
+                      color: Color.fromARGB(136, 255, 255, 255),
+                      fontSize: 30,
+                    ),
+                  ),
+                ),
+              ),
               Container(
                 alignment: Alignment(1.0, 1.0),
                 child: Padding(
