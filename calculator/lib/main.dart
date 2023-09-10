@@ -5,11 +5,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'dart:math';
 
 void main() {
-  runApp(CalculatorApp());
+  runApp(const CalculatorApp());
 }
 
 class CalculatorApp extends StatefulWidget {
-  CalculatorApp({super.key});
+  const CalculatorApp({super.key});
   @override
   State<CalculatorApp> createState() => _CalculatorAppState();
 }
@@ -20,7 +20,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
   String operation = '';
   double firstNumber = 0;
   double secondNumber = 0;
-  String textHistory = 'hello dart ';
+  String textHistory = 'History';
 
   void onClick(String response) {
     switch (response) {
@@ -131,8 +131,13 @@ class _CalculatorAppState extends State<CalculatorApp> {
               : 0;
         }
         break;
+      default:
+        textToDisplay = 'Error';
     }
-    setState(() {textHistory; textToDisplay;});
+    setState(() {
+      textHistory;
+      textToDisplay;
+    });
   }
 
   @override
@@ -159,26 +164,26 @@ class _CalculatorAppState extends State<CalculatorApp> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-                alignment: Alignment(1.0, 1.0),
+                alignment: const Alignment(1.0, 1.0),
                 child: Padding(
-                  padding: EdgeInsets.all(12.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: Text(
                     textHistory,
                     style: GoogleFonts.rubik(
-                      color: Color.fromARGB(136, 255, 255, 255),
+                      color: const Color.fromARGB(136, 255, 255, 255),
                       fontSize: 30,
                     ),
                   ),
                 ),
               ),
               Container(
-                alignment: Alignment(1.0, 1.0),
+                alignment: const Alignment(1.0, 1.0),
                 child: Padding(
-                  padding: EdgeInsets.all(12.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: Text(
                     textToDisplay,
                     style: GoogleFonts.rubik(
-                      color: Color.fromARGB(217, 255, 255, 255),
+                      color: const Color.fromARGB(217, 255, 255, 255),
                       fontSize: 45,
                     ),
                   ),
@@ -209,7 +214,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CalculatorButton(
-                    text: '9',
+                    text: '7',
                     callback: onClick,
                   ),
                   CalculatorButton(
@@ -217,7 +222,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
                     callback: onClick,
                   ),
                   CalculatorButton(
-                    text: '7',
+                    text: '9',
                     callback: onClick,
                   ),
                   CalculatorButtonFunc(
@@ -230,7 +235,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CalculatorButton(
-                    text: '6',
+                    text: '4',
                     callback: onClick,
                   ),
                   CalculatorButton(
@@ -238,7 +243,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
                     callback: onClick,
                   ),
                   CalculatorButton(
-                    text: '4',
+                    text: '6',
                     callback: onClick,
                   ),
                   CalculatorButtonFunc(
@@ -251,7 +256,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CalculatorButton(
-                    text: '3',
+                    text: '1',
                     callback: onClick,
                   ),
                   CalculatorButton(
@@ -259,7 +264,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
                     callback: onClick,
                   ),
                   CalculatorButton(
-                    text: '1',
+                    text: '3',
                     callback: onClick,
                   ),
                   CalculatorButtonFunc(
